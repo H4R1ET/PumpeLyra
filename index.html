@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Lyra!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Barra de desplazamiento personalizada */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #ffe4e1; 
+            border-radius: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e91e63; 
+            border-radius: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #dc143c; 
+        }
+
+        /* Transiciones de pantallas */
+        .view-section {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .fade-in {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .hidden-view {
+            display: none !important;
+        }
+
+        /* Estilo base para los botones personalizados */
+        .btn-custom {
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 20, 60, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex items-center justify-center p-4 sm:p-8 bg-black">
+    
+    <!-- Imagen de fondo con filtro rosa/oscuro -->
+    <div class="fixed inset-0 z-0">
+        <img src="simple pattern.png" 
+             alt="Background" 
+             class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-[#dc143c]/20 to-[#ff007f]/40 backdrop-blur-md"></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="relative z-10 w-full max-w-3xl bg-white/95 border-2 border-[#f8bbd0] rounded-2xl shadow-[0_0_30px_rgba(233,30,99,0.3)] overflow-hidden min-h-[750px] flex flex-col">
+        
+        <!-- ================= VISTA PRINCIPAL ================= -->
+        <div id="view-main" class="view-section flex flex-col h-full fade-in">
+            
+            <!-- Encabezado de Perfil -->
+            <div class="p-8 pb-6 flex flex-col sm:flex-row items-center gap-6 border-b border-[#ffe4e1] bg-gradient-to-r from-[#ffe4e1]/40 via-white to-[#f8bbd0]/30 shrink-0">
+                <div class="shrink-0 relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-[#ff007f] to-[#dc143c] rounded-2xl blur opacity-75"></div>
+                    <img src="FotoIcon.png"
+                         class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border-2 border-white shadow-md">
+                </div>
+                <div class="text-center sm:text-left">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-[#dc143c] tracking-tight">
+                        ¡Feliz Cumpleaños Lyra!
+                    </h1>
+                    <p class="text-gray-700 mt-2 text-sm sm:text-base leading-relaxed">
+                        ¡Feli Cum-pleanios a la mas papupro de todo el server! Pulsa los botones para ver las sorpresas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Lista de Botones -->
+            <div class="p-8 flex-grow flex flex-col gap-4 overflow-y-auto custom-scrollbar">
+                
+                <!-- Botón 1 -->
+                <button onclick="openLetter('letter-1')" class="btn-custom group w-full border-2 border-[#ff007f] hover:bg-[#ff007f]/10 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#ff007f]/10 border border-[#ff007f]/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="MelIcon.png" alt="Icono 1" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black group-hover:text-[#ff007f]">
+                            Mel's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-[#ff007f] group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Botón 2 -->
+                <button onclick="openLetter('letter-2')" class="btn-custom group w-full border-2 border-[#dc143c] hover:bg-[#dc143c]/10 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#dc143c]/10 border border-[#dc143c]/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="SuzyIcon.png" alt="Icono 2" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black group-hover:text-[#dc143c]">
+                            Suzy's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-[#dc143c] group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Botón 3 -->
+                <button onclick="openLetter('letter-3')" class="btn-custom group w-full border-2 border-[#ff6b6b] hover:bg-[#ff6b6b]/10 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#ff6b6b]/10 border border-[#ff6b6b]/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="ErickIcon.png" alt="Icono 3" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black group-hover:text-[#ff6b6b]">
+                            Erick's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-[#ff6b6b] group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Botón 4 -->
+                <button onclick="openLetter('letter-4')" class="btn-custom group w-full border-2 border-black hover:bg-black/5 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-black/10 border border-black/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="JafetIcon.png" alt="Icono 4" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black">
+                            Jafet's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-black group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                 <!-- Botón 5 -->
+                <button onclick="openLetter('letter-5')" class="btn-custom group w-full border-2 border-[#e91e63] hover:bg-[#e91e63]/10 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#e91e63]/10 border border-[#e91e63]/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="FurroIcon.png" alt="Icono 5" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black group-hover:text-[#e91e63]">
+                            Furro's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-[#e91e63] group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Botón 6 -->
+                <button onclick="openLetter('letter-6')" class="btn-custom group w-full border-2 border-[#e91e63] hover:bg-[#e91e63]/10 rounded-xl py-3 px-5 flex justify-between items-center focus:outline-none">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-[#e91e63]/10 border border-[#e91e63]/30 flex items-center justify-center overflow-hidden shrink-0">
+                            <img src="HarietIcon.png" alt="Icono 5" class="w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                        </div>
+                        <span class="font-semibold text-lg text-black group-hover:text-[#e91e63]">
+                            Hariet's Folder
+                        </span>
+                    </div>
+                    <i class="ph ph-caret-right text-2xl text-[#e91e63] group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- ================= VISTAS DE DETALLE ================= -->
+        
+        <!-- Vista 1 -->
+        <div id="letter-1" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-[#ff007f] text-[#ff007f] hover:bg-[#ff007f] hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-[#ff007f]">Mel's Collage</h2>
+            </div>
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex justify-center">
+                    <img src="MelCOLLAGE.jpeg" alt="Tarjeta 1" class="max-w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista 2 -->
+        <div id="letter-2" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-[#dc143c] text-[#dc143c] hover:bg-[#dc143c] hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-[#dc143c]">Suzy's Collage</h2>
+            </div>
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex justify-center">
+                    <img src="SuzzyCOLLAGE.jpeg" alt="Tarjeta 2" class="max-w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista 3 -->
+        <div id="letter-3" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-[#ff6b6b] text-[#ff6b6b] hover:bg-[#ff6b6b] hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-[#ff6b6b]">Erick's Collage</h2>
+            </div>
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex justify-center">
+                    <img src="ErickCOLLAGE.jpeg" alt="Tarjeta 3" class="max-w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista 4 -->
+        <div id="letter-4" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-black text-black hover:bg-black hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-black">Jafet's Collage</h2>
+            </div>
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex justify-center">
+                    <img src="JafetCOLLAGE.jpeg" alt="Tarjeta 4" class="max-w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista  -->
+        <div id="letter-5" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-black text-black hover:bg-black hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-black">Furro's Collage</h2>
+            </div>
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex justify-center">
+                    <img src="FurroCOLLAGE.jpg" alt="Tarjeta 5" class="max-w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista 6 (Hariet's Design - 3 imágenes en secuencia vertical) -->
+        <div id="letter-6" class="view-section absolute inset-0 bg-white/95 flex flex-col hidden-view fade-out">
+            <div class="p-6 pb-4 border-b border-[#ffe4e1] shrink-0 bg-[#ffe4e1]/20 flex justify-between items-center">
+                <button onclick="goBack()" class="border-2 border-[#e91e63] text-[#e91e63] hover:bg-[#e91e63] hover:text-white rounded-xl py-2 px-4 flex items-center gap-2 transition-all duration-200 focus:outline-none">
+                    <i class="ph ph-caret-left font-bold"></i>
+                    <span class="font-medium">Regresar</span>
+                </button>
+                <h2 class="text-xl font-bold text-[#e91e63]">Hariet's Design</h2>
+            </div>
+            
+            <!-- scrollbar vertical habilitado + justify-start para no cortar el inicio -->
+            <div class="p-4 sm:p-8 overflow-y-auto custom-scrollbar flex-grow flex flex-col items-center justify-start">
+                <div class="w-full flex flex-col items-center gap-6">
+                    <img src="LyraPORTRAIT_01.jpg" alt="Diseño 1" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                    <img src="LYRA_Newspaper_02.jpg" alt="Diseño 2" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                    <img src="LYRA_POPdesign03.jpg" alt="Diseño 3" class="w-full h-auto rounded-xl shadow-lg border border-gray-100">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script de navegación -->
+    <script>
+        let currentActiveLetter = null;
+        
+        const mainView = document.getElementById('view-main');
+        const transitionDuration = 300; 
+
+        function openLetter(letterId) {
+            const letterView = document.getElementById(letterId);
+            if (!letterView) return;
+
+            mainView.classList.remove('fade-in');
+            mainView.classList.add('fade-out');
+
+            setTimeout(() => {
+                mainView.classList.add('hidden-view');
+                letterView.classList.remove('hidden-view');
+                
+                void letterView.offsetWidth; 
+                
+                letterView.classList.remove('fade-out');
+                letterView.classList.add('fade-in');
+                
+                currentActiveLetter = letterView;
+            }, transitionDuration);
+        }
+
+        function goBack() {
+            if (!currentActiveLetter) return;
+
+            currentActiveLetter.classList.remove('fade-in');
+            currentActiveLetter.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentActiveLetter.classList.add('hidden-view');
+                currentActiveLetter = null;
+                
+                mainView.classList.remove('hidden-view');
+                
+                void mainView.offsetWidth;
+                
+                mainView.classList.remove('fade-out');
+                mainView.classList.add('fade-in');
+            }, transitionDuration);
+        }
+    </script>
+</body>
+</html>
